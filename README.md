@@ -8,6 +8,7 @@ Willkommen zum Django Grundlagen-Tutorial! In diesem Tutorial werden wir die Ker
 - **Templates**: Erstellung von Vorlagen für die Darstellung von Webseiten.
 - **Authentication**: Implementierung der Benutzerauthentifizierung in Django.
 - **REST API**: Erstellung einer RESTful API mit Django Rest Framework.
+- **OAtuh2.0**: Zur Absicherung der API
 - **Filter**: Anwendung von Filtern, um Daten abzufragen und zu sortieren.
 - **Signals**: Verwendung von Signalen zur Reaktion auf Ereignisse in Django.
 - **Groups**: Verwaltung von Benutzergruppen und Berechtigungen.
