@@ -10,8 +10,8 @@ Willkommen zum Django Grundlagen-Tutorial! In diesem Tutorial werden wir die Ker
 4.	Models
 5. 	Admin-Panel, Register Models, CreateUpdateDelete Items
 6.	Forms erstellen
-7.	Views erstellen
-8.	Templates erstellen
+7.	Templates erstellen
+8.	Views erstellen
 9.	URLS erstellen
 10.	Dashboard bauen
 11.	RESTAPI erstellen
