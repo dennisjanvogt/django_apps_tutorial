@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="d-flex align-items-center">
+        <h1 class="m-auto">{% if form.instance.pk %}Mitarbeiter bearbeiten{% else %}Neuen Mitarbeiter hinzufügen{% endif %}</h1>
+    </div>
+    <hr>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary">Speichern</button>
+        <a href="{% url 'mitarbeiter_list' %}" class="btn btn-secondary">Abbrechen</a>
+    </form>
+{% endblock %}

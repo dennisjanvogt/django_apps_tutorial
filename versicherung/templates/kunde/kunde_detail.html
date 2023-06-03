@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="d-flex align-items-center">
+        <h1 class="m-auto">Kunde Details</h1>
+    </div>
+    <hr>
+    <table class="table bg-dark text-light">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ kunde.pk }}</td>
+            </tr>
+            <tr>
+                <th>Vorname</th>
+                <td>{{ kunde.vorname }}</td>
+            </tr>
+            <tr>
+                <th>Nachname</th>
+                <td>{{ kunde.nachname }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ kunde.email }}</td>
+            </tr>
+            <tr>
+                <th>Telefonnummer</th>
+                <td>{{ kunde.telefonnummer }}</td>
+            </tr>
+            <tr>
+                <th>Aktionen</th>
+                <td>
+                    <a href="{% url 'kunde_delete' kunde.pk %}" class="btn btn-sm btn-danger">Löschen</a>
+                    <a href="{% url 'kunde_update' kunde.pk %}" class="btn btn-sm btn-warning">Bearbeiten</a>
+                    <a href="{% url 'kunde_list' %}" class="btn btn-sm btn-secondary">Zurück zur Liste</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+{% endblock %}

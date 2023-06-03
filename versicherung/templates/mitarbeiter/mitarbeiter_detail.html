@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="d-flex align-items-center">
+        <h1 class="m-auto">Mitarbeiter Details</h1>
+    </div>
+    <hr>
+    <div class="card bg-dark text-light">
+        <div class="card-body">
+            <h5 class="card-title">{{ mitarbeiter.user }}</h5>
+            <p class="card-text">
+                <strong>ID:</strong> {{ mitarbeiter.pk }}<br>
+                <strong>Position:</strong> {{ mitarbeiter.get_position_display }}<br>
+                <strong>Geburtsdatum:</strong> {{ mitarbeiter.geburtsdatum }}<br>
+                <strong>Einstellungsdatum:</strong> {{ mitarbeiter.einstellungsdatum }}<br>
+                <strong>Telefonnummer:</strong> {{ mitarbeiter.telefonnummer }}
+            </p>
+            <a href="{% url 'mitarbeiter_list' %}" class="btn btn-sm btn-secondary">Zurück zur Liste</a>
+            <a href="{% url 'mitarbeiter_delete' mitarbeiter.pk %}" class="btn btn-sm btn-danger">Löschen</a>
+            <a href="{% url 'mitarbeiter_update' mitarbeiter.pk %}" class="btn btn-sm btn-warning">Bearbeiten</a>
+        </div>
+    </div>
+{% endblock %}

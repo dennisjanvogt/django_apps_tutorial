@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="d-flex align-items-center">
+        <h1 class="m-auto">Schadensfall Löschen</h1>
+    </div>
+    <hr>
+    <p>Sind Sie sicher, dass Sie den Schaden "{{ schaden }}" löschen möchten?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Löschen</button>
+        <a href="{% url 'schadensfall_list' %}" class="btn btn-secondary">Abbrechen</a>
+    </form>
+{% endblock %}
