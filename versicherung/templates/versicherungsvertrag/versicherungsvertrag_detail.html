@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="d-flex align-items-center">
+        <h1 class="m-auto">Vertragsnummer {{ versicherungsvertrag.vertragsnummer }} Details</h1>
+    </div>
+    <hr>
+    <table class="table bg-dark text-light">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ versicherungsvertrag.pk }}</td>
+            </tr>
+            <tr>
+                <th>Vertragsnummer</th>
+                <td>{{ versicherungsvertrag.vertragsnummer }}</td>
+            </tr>
+            <tr>
+                <th>Vertragsdatum</th>
+                <td>{{ versicherungsvertrag.vertragsdatum }}</td>
+            </tr>
+            <tr>
+                <th>Laufzeit (Monate)</th>
+                <td>{{ versicherungsvertrag.laufzeit }}</td>
+            </tr>
+            <tr>
+                <th>Kunde</th>
+                <td>{{ versicherungsvertrag.kunde }}</td>
+            </tr>
+            <tr>
+                <th>Aktionen</th>
+                <td>
+                    <a href="{% url 'versicherungsvertrag_delete' versicherungsvertrag.pk %}" class="btn btn-sm btn-danger">Löschen</a>
+                    <a href="{% url 'versicherungsvertrag_update' versicherungsvertrag.pk %}" class="btn btn-sm btn-warning">Bearbeiten</a>
+                    <a href="{% url 'versicherungsvertrag_list' %}" class="btn btn-sm btn-secondary">Zurück zur Liste</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+{% endblock %}

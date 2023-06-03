@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Kunden</h5>
+                        <p class="display-4">{{ kunden_count }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Mitarbeiter</h5>
+                        <p class="display-4">{{ mitarbeiter_count }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Monatlicher Beitrag</h5>
+                        <p class="display-4">{{ total_monatlicher_beitrag }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card text-white bg-danger mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Schadenshöhe</h5>
+                        <p class="display-4">{{ total_schadenshoehe }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h2 class="mb-3">Lukrativste Verträge</h2>
+                <ul class="list-group">
+                    {% for vertrag in lukrativste_vertrage %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ vertrag.vertragsnummer }} (Wert {{ vertrag.monatlicher_beitrag }})
+                            <a href="{% url 'versicherungsvertrag_detail' vertrag.pk %}" class="btn btn-info">Details</a>
+                        </li>
+                    {% empty %}
+                        <li class="list-group-item">Keine Verträge vorhanden.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

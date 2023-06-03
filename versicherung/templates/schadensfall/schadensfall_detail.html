@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="d-flex align-items-center">
+        <h1 class="m-auto">Schadensfall Details</h1>
+    </div>
+    <hr>
+    <table class="table bg-dark text-light">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ schadensfall.pk }}</td>
+            </tr>
+            <tr>
+                <th>Beschreibung</th>
+                <td>{{ schadensfall.beschreibung }}</td>
+            </tr>
+            <tr>
+                <th>Versicherungsvertrag</th>
+                <td>{{ schadensfall.versicherungsvertrag }}</td>
+            </tr>
+            <tr>
+                <th>Schadenshoehe</th>
+                <td>{{ schadensfall.schadenshoehe }}</td>
+            </tr>
+            <tr>
+                <th>Datum</th>
+                <td>{{ schadensfall.erstellt_am }}</td>
+            </tr>
+            <tr>
+                <th>Aktionen</th>
+                <td>
+                    <a href="{% url 'schadensfall_delete' schadensfall.pk %}" class="btn btn-sm btn-danger">Löschen</a>
+                    <a href="{% url 'schadensfall_update' schadensfall.pk %}" class="btn btn-sm btn-warning">Bearbeiten</a>
+                    <a href="{% url 'schadensfall_list' %}" class="btn btn-sm btn-secondary">Zurück zur Liste</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1 class="text-center">Willkommen bei der Versicherung XYZ</h1>
+<p class="text-center">Diese Anwendung hilft Ihnen dabei, die Aktivitäten Ihrer Versicherungsgesellschaft zu verwalten.
+</p>
+
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <a href="{% url 'mitarbeiter_list' %}" class="card bg-success text-decoration-none">
+                <div class="card-body m-3">
+                    <h3 class="card-title text-white">Mitarbeiter</h3>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <a href="{% url 'kunde_list' %}" class="card bg-primary text-decoration-none">
+                <div class="card-body  m-3">
+                    <h3 class="card-title text-white">Kunden</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <a href="{% url 'versicherungsvertrag_list' %}" class="card bg-warning text-decoration-none">
+                <div class="card-body  m-3">
+                    <h3 class="card-title text-white">Verträge</h3>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <a href="{% url 'schadensfall_list' %}" class="card bg-danger text-decoration-none">
+                <div class="card-body  m-3">
+                    <h3 class="card-title text-white">Schadensfälle</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
