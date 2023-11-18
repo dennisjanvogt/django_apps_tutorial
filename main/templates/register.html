@@ -1,0 +1,61 @@
+{% load crispy_forms_tags %}
+{% load static %}
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png"
+            href="{% static 'favicon.ico' %}" />
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+            crossorigin="anonymous">
+
+        <title>Versicherung XYZ | Register</title>
+    </head>
+    <body class="bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-auto">
+                    <h1 class="my-4 text-light"><a class="text-light"
+                            style="text-decoration: none;"
+                            href="{% url 'index' %}">DJANGO_APPS</a></h1>
+                </div>
+                <div class="col-auto">
+                    {% if request.user.is_authenticated %}
+                    <span class="text-light">Angemeldet als: {{
+                        request.user.username }}</span>
+                    <a href="/logout" class="btn btn-warning m-2">Logout</a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="container h-100">
+                <div class="row align-items-center h-100">
+                    <div class="col-6 mx-auto">
+                        <div class="jumbotron">
+                            <h2 class="text-center">Registrierung</h2>
+                            <hr>
+                            <form method="POST" class="text-light">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <button class="btn btn-primary" type="submit">Registrieren</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+            integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+            integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+            crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+Django
+black
+crispy-bootstrap5
+djangorestframework
+django-heroku
+gunicorn
+whitenoise
+factory_boy
+faker
+django-filter
+django-oauth-toolkit
