@@ -5,7 +5,7 @@ from .models import Kunde, Mitarbeiter, Schadensfall, Versicherungsvertrag
 class MitarbeiterForm(forms.ModelForm):
     class Meta:
         model = Mitarbeiter
-        field = "__all__"
+        fields = "__all__"
         widgets = {
             "geburtsdatum": forms.DateInput(attrs={"type": "date"}),
             "einstellungsdatum": forms.DateInput(attrs={"type": "date"}),
