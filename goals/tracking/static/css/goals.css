@@ -1,0 +1,268 @@
+/* goals.css */
+:root {
+    --color-primary: #4a6fa5;
+    --color-gesundheit: #2ecc71;
+    --color-finanzen: #3498db;
+    --color-karriere: #9b59b6;
+    --color-grey: #f0f2f5;
+    --color-dark: #333;
+    --color-text: #4e4e4e;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--color-grey);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    color: var(--color-dark);
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+#goals-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.goal-card {
+    background-color: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.goal-card:hover {
+    transform: translateY(-5px);
+}
+
+.goal-header {
+    padding: 15px 20px;
+    color: white;
+    position: relative;
+}
+
+.goal-header.gesundheit {
+    background-color: var(--color-gesundheit);
+}
+
+.goal-header.finanzen {
+    background-color: var(--color-finanzen);
+}
+
+.goal-header.karriere {
+    background-color: var(--color-karriere);
+}
+
+.goal-header h2 {
+    font-size: 1.3rem;
+    margin-right: 80px;
+}
+
+.category-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.goal-body {
+    padding: 20px;
+}
+
+.description {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.progress-container {
+    margin-bottom: 15px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.percentage {
+    font-weight: bold;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(to right, var(--color-primary), #74b9ff);
+}
+
+.dates {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.date .label {
+    color: #888;
+    margin-right: 5px;
+}
+
+.time-remaining {
+    text-align: center;
+    font-weight: bold;
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.goal-footer {
+    padding: 0 20px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #f0f0f0;
+    color: var(--color-dark);
+}
+
+.update-btn {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: var(--radius);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    background-color: var(--color-primary);
+    color: white;
+    width: 100%;
+    padding: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #goals-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .goal-card {
+        max-width: 100%;
+    }
+}

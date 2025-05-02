@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ziele-Dashboard</title>
+    <!-- CSS Einbindung -->
+    <link rel="stylesheet" href="{% static 'css/goals.css' %}">
+    <!-- Oder alternativ als CDN -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Goals</h1>
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">Alle</button>
+                <button class="filter-btn" data-filter="Gesundheit">Gesundheit</button>
+                <button class="filter-btn" data-filter="Finanzen">Finanzen</button>
+                <button class="filter-btn" data-filter="Karriere">Karriere</button>
+            </div>
+        </header>
+
+        <main id="goals-container">
+            {% for goal in goals %}
+            <div class="goal-card" data-category="{{ goal.kategorie }}">
+                <div class="goal-header {{ goal.kategorie|lower }}">
+                    <h2>{{ goal.definition }}</h2>
+                    <span class="category-badge">{{ goal.kategorie }}</span>
+                </div>
+                <div class="goal-body">
+                    <p class="description">{{ goal.description }}</p>
+                    <div class="dates">
+                        <div class="date">
+                            <span class="label">Start:</span>
+                            <span class="value">{{ goal.start }}</span>
+                        </div>
+                        <div class="date">
+                            <span class="label">Ende:</span>
+                            <span class="value">{{ goal.end }}</span>
+                        </div>
+                    </div>
+                    <div class="time-remaining" data-end="{{ goal.end|date:'Y-m-d' }}">
+                        <span class="days-left"></span> Tage verbleibend
+                    </div>
+                </div>
+                <div class="goal-footer">
+                    <button class="btn edit-btn" data-id="{{ goal.id }}">Bearbeiten</button>
+                    <button class="btn update-btn" data-id="{{ goal.id }}">Fortschritt aktualisieren</button>
+                </div>
+            </div>
+            {% endfor %}
+        </main>
+    </div>
+
+    <!-- JavaScript Einbindung -->
+    <script src="{% static 'js/goals.js' %}"></script>
+    <!-- Oder alternativ als CDN -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+</body>
+</html>
